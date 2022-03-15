@@ -1,0 +1,68 @@
+title Policy Compliance - Creator
+style wardley
+anchor Policy Creator [0.95, 0.30]
+anchor Policy Checker [0.95, 0.5]
+anchor Policy Consumer [0.97, 0.62]
+
+component External [0.90, 0.18]
+component Legislation  [0.79, 0.08] label [-29, 18]
+component Industry Norms (ISO, BSI) [0.86, 0.06] label [-72, -13]
+component Policy [0.82, 0.32] label [0, -12]
+component Content [0.63, 0.16] label [-67, 2]
+component Text Editor [0.49, 0.57] label [5, -10]
+component Versioning [0.62, 0.37] label [-21, -10] inertia
+component Merging [0.49, 0.19] label [-58, -9]
+component Publish [0.74, 0.27] label [-22, 20]
+component Statement of Compliance [0.85, 0.24] label [-61, -20]
+component Task Assignment [0.90, 0.38] label [-4, -6]
+component Files [0.18, 0.40]
+component Storage [0.07, 0.74] label [7, 4]
+component Backup [0.03, 0.74] label [12, 5]
+component File Format [0.11, 0.74] label [8, 7]
+component Content Format [0.53, 0.11] label [5, -10] inertia
+component Create [0.79, 0.37] label [5, 3]
+component Platform [0.70, 0.75] label [5, -10]
+component Policy as Data (oscal) [0.40, 0.65] label [9, -17]
+component Audience-based Policies [0.31, 0.52] label [5, 13]
+component System Profiles [0.33, 0.58]
+component Parser [0.46, 0.11]
+// Evolution
+evolve Versioning 0.75 
+evolve Content Format 0.65 label [14, 3]
+evolve Parser 0.65
+//relationships
+
+Policy Creator->External
+External-> Industry Norms (ISO, BSI)
+External-> Legislation
+Policy->Create
+Policy Creator->Policy
+Create ->Versioning
+
+Create->Content
+Content->Text Editor
+Content->Content Format
+Versioning->Merging
+Policy ->Publish
+Policy Creator->Statement of Compliance
+Policy Creator->Task Assignment
+Text Editor->Files
+Versioning->Files
+
+Files->Storage
+Files->Backup
+Files->File Format
+Publish->Files
+Publish->Platform
+Statement of Compliance-> Policy
+Statement of Compliance-> Publish
+
+Policy as Data (oscal)->Audiece-based Policy
+Policy as Data (oscal)->Policy as Data (oscal)
+Policy as Data (oscal)->Audience-based Policies
+Policy as Data (oscal)->System Profiles
+
+
+
+Content Format->Parser
+Parser->Policy as Data (oscal)
