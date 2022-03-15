@@ -1,0 +1,75 @@
+title Policy Compliance - Consumer
+style wardley
+anchor Policy Creator [0.95, 0.30]
+anchor Policy Checker [0.95, 0.50]
+anchor Policy Consumer [0.98, 0.63]
+
+
+component Policy [0.77, 0.31] label [-52, 5]
+component Content [0.61, 0.26] label [5, -10]
+component Statement of Compliance [0.84, 0.31] label [-69, -24] inertia
+component Files [0.27, 0.29]
+component Content Format [0.53, 0.11] label [-30, 22] inertia
+component Requirements [0.67, 0.31] label [-93, 3]
+component Platform [0.72, 0.76] label [5, -10]
+component Policy as Data (oscal) [0.40, 0.64] label [9, -17]
+component Audience-based Policies [0.36, 0.50] label [-68, -20]
+component System Profiles [0.33, 0.58] label [15, -12]
+component Tickets [0.24, 0.43] label [-29, -8]
+component Activities [0.26, 0.58] label [9, 6]
+component Requirements Engine [0.71, 0.39] label [21, -9]
+component Compliance Engine [0.64, 0.20] label [-67, -16] inertia
+component CI/CD Pipeline [0.15, 0.71] label [12, 5]
+component Ticket Engine [0.08, 0.71]
+// Evolution
+evolve Statement of Compliance 0.75 label [15, -19]
+evolve Content Format 0.65 label [14, 3]
+evolve Compliance Engine 0.55 label [18, -7]
+
+//relationships
+
+Policy Consumer->Policy
+
+Content->Content Format
+
+Platform->Files
+Content->Files
+
+Files->Storage
+Files->Backup
+Files->File Format
+Publish->Files
+Publish->Platform
+Statement of Compliance-> Policy
+Statement of Compliance-> Publish
+Content Format->Policy as Data (oscal)
+Policy as Data (oscal)->Audiece-based Policy
+Policy as Data (oscal)->Policy as Data (oscal)
+Policy as Data (oscal)->Audience-based Policies
+Policy as Data (oscal)->System Profiles
+
+
+
+Policy Consumer->Statement of Compliance
+Policy->Requirements
+Requirements->Content
+Statement of Compliance->Platform
+Policy->Platform
+
+Activities->System Profiles
+Tickets->System Profiles
+Statement of Compliance->Statement of Compliance
+Statement of Compliance->Statement of Compliance
+Requirements->Requirements Engine
+Requirements Engine->System Profiles
+Policy Consumer->Requirements Engine
+Policy Consumer->Compliance Engine
+Statement of Compliance->Compliance Engine
+Compliance Engine->System Profiles
+
+Compliance Engine->Tickets
+Activities->CI/CD Pipeline
+Compliance Engine->CI/CD Pipeline
+Tickets->Ticket Engine
+Compliance Engine->Ticket Engine
+Policy Checker->Statement of Compliance
