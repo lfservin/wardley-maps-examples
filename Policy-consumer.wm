@@ -12,7 +12,7 @@ component Files [0.27, 0.29]
 component Content Format [0.53, 0.11] label [-30, 22] inertia
 component Requirements [0.67, 0.31] label [-93, 3]
 component Platform [0.72, 0.76] label [5, -10]
-component Policy as Data (oscal) [0.40, 0.64] label [9, -17]
+component Policy as Data (oscal) [0.40, 0.65] label [9, -17]
 component Audience-based Policies [0.36, 0.50] label [-68, -20]
 component System Profiles [0.33, 0.58] label [15, -12]
 component Tickets [0.24, 0.43] label [-29, -8]
